@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web Audio Visualizer</title>
+    
+    <!-- CSS -->
+	<style>
+        body {
+            background: black;
+            font-family: 'Coda', cursive;
+        }
+        
+        h1{
+            font-family: 'Audiowide', cursive;
+            font-weight: normal;
+        }
+        
+        main {
+            display: block;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+        #monitor, #bottom { 
+            padding: 10px;
+        }
+        
+        #monitor {
+            background: #1c1c1c; 
+            margin-bottom: 10px;
+        }
+        
+        #bottom {
+            background: #1A2638; 
+        }
+        
+        canvas {
+            margin: 0 auto 0 auto;
+            display: block;
+            background: black;
+            box-shadow: 0px 0px 20px 10px rgba(255,255,255,0.25);
+            border: 15px solid #292929;
+        }
+        
+        #controls {
+            margin: 10px auto 5px auto;
+            padding: 0.5em 2.5em 0.5em 2.5em;
+            background: #39537A;
+            width: 800px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        #undulateRange {
+            direction: rtl;
+        }
+	</style>
+    
+    <!-- JavaScript -->
+    <script src="audioJS.js"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+</head>
+<body>
+	<main>
+        <div id="monitor">
+            <canvas id="canvas" width="1000" height="500"></canvas>
+        </div>
+        
+        <div id="bottom">
+            <div id="controls">
+                <audio controls loop></audio>
+                &nbsp;&nbsp;<label>Track: 
+                <select id="trackSelect" >
+	   	      		<option value="Baroque Sea, Act I">Baroque Sea, Act I</option>
+	   	      		<option value="Magician's Theme">The Magician's Theme</option>
+                    <option value="Wild Dog's Theme">Wild Dog's Theme</option>
+                    <option value="Grakata!">Grakata!</option>
+	   	      	</select>
+                </label> &nbsp;&nbsp;
+                <button id="fsButton">Play Full Screen</button>
+                <button id="resetButton">Reset filters</button><br>
+                <h1>Audio Visual Jukebox</h1>
+                    <p>
+                        Playback speed:
+                        <input type="range" id="playSpeed" value="1.0" min="0.5" max="2.0" step="0.1">
+                        &nbsp;Reverb:
+                        <input type="range" id="reverbRange" value="0" min="0" max="1" step="0.1">
+                    </p>
+                    <p>
+                        Invert:
+                        <input type="checkbox" id="invertCheck">
+                        &nbsp; Sepia:
+                        <input type="checkbox" id="sepiaCheck">
+                        &nbsp; Emboss:
+                        <input type="checkbox" id="embossCheck">
+                        &nbsp; Waveform/seaweed farm:
+                        <input type="checkbox" id="waveCheck">
+                    </p>
+                    <hr>
+                    <p>
+                        <label>Set time:
+                        <select id="timeSelect">
+                            <option value="present" selected>Present</option>
+                            <option value="past">Past</option>
+                        </select>
+                        </label> 
+                    <!-- These places are worth a Google -->
+                        &nbsp; Set location:
+                        <select id="locateSelect">
+                            <option value="0" selected>Atlantic</option>
+                            <option value="1">Pacific</option>
+                            <option value="2">Red Sea</option>
+                            <option value="3">Yellow Sea</option>
+                            <option value="4">Black Sea</option>
+                            <option value="5">White Sea</option>
+                            <option value="6">Coral Sea</option>
+                        </select>
+                        &nbsp; Text on/off<input type="checkbox" id="textShow" checked>
+                        &nbsp; Show aeroship<input type="checkbox" id="spriteShow" checked>
+                    </p>
+                    <p>Undulation:
+                        <input type="range" id="undulateRange" value="3" min="1.5" max="6" step="0.5">
+                        &nbsp; Sun radius: 
+                        <input type="range" id="radiusRange" value="150" min="10" max="500">  
+                    </p>
+            </div>
+        </div>
+       
+    </main>
+</body>
+</html>
